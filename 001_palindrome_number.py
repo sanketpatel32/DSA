@@ -1,6 +1,6 @@
 """
 001_palindrome_number
-
+https://leetcode.com/problems/palindrome-number/description/
 Question:
 Given an integer x, return True if x is a palindrome, and False otherwise.
 
@@ -15,3 +15,7 @@ Approaches:
 
 # TODO: implement your solution here
 
+
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        return str(x) == str(x)[::-1]
