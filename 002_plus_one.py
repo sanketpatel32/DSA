@@ -1,6 +1,6 @@
 """
 002_plus_one
-
+https://leetcode.com/problems/plus-one/
 Question:
 Given a large integer as a digit array, increment it by one and return the result.
 
@@ -12,3 +12,16 @@ Approaches:
 """
 
 # TODO: implement your solution here
+class Solution:
+    def plusOne(self, digits: list[int]) -> list[int]:
+        carry = 1 
+        
+        for i in range(len(digits) - 1, -1, -1):
+            n = digits[i] + carry
+            carry = 1 if n >= 10 else 0
+            digits[i] = n % 10 
+            
+        if carry:
+            return [1] + digits
+        else:
+            return digits
