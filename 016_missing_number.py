@@ -1,5 +1,6 @@
 """
 016_missing_number
+https://leetcode.com/problems/missing-number/
 
 Question:
 Array of n distinct numbers from 0..n. Find the missing one.
@@ -16,3 +17,13 @@ Approaches:
 """
 
 # TODO: implement your solution here
+
+
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        number = len(nums)
+        for i in range(len(nums)):
+            number ^= i
+            number ^= nums[i]
+
+        return number

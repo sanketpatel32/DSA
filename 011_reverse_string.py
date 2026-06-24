@@ -16,5 +16,5 @@ Approaches:
 
 # TODO: implement your solution here
 
-def swap(a:List)->List[char]:
+
     

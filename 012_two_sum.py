@@ -1,5 +1,6 @@
 """
 012_two_sum
+https://leetcode.com/problems/two-sum/
 
 Question:
 Given nums and a target, return indices of the two numbers that add up to target.
@@ -15,3 +16,13 @@ Approaches:
 """
 
 # TODO: implement your solution here
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        count = {}
+        for i in range(0,len(nums)):
+            req = target - nums[i]
+            if req in count:
+                return [count[req],i]
+            else:
+                count[nums[i]] = i
+        return [-1,-1]
