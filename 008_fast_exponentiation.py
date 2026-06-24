@@ -14,3 +14,15 @@ Approaches:
 """
 
 # TODO: implement your solution here
+
+
+def recursive_exponentiation(A: int, N: int) -> int:
+    if N == 0:
+        return 1
+    elif N % 2 == 0:
+        temp = recursive_exponentiation(A, (N // 2))
+        return temp * temp
+    else:
+        return A*recursive_exponentiation(A, N - 1)
+        
+print(recursive_exponentiation(3, 5))

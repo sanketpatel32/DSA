@@ -17,3 +17,10 @@ Approaches:
 """
 
 # TODO: implement your solution here
+
+def recursive_fibonacci(a:int)->int:
+    if a <= 1:
+       return a
+    return a + recursive_fibonacci(a-1)
+   
+print(recursive_fibonacci(10)) 

@@ -3,6 +3,7 @@
 
 Question:
 Given two positive integers a and b, compute their GCD and LCM.
+https://www.geeksforgeeks.org/problems/lcm-and-gcd4516/1
 
 Input: a = 12, b = 18
 Output: GCD = 6, LCM = 36
@@ -15,3 +16,13 @@ Approaches:
 """
 
 # TODO: implement your solution here
+
+class Solution:
+    def lcmAndGcd(self, a: int, b: int) -> List[int]:
+        def gcd(a, b):
+            return a if b == 0 else gcd(b, a % b)
+
+        def lcm(a, b):
+            return (a // gcd(a, b)) * b
+
+        return [lcm(a, b), gcd(a, b)]
