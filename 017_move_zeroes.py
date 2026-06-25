@@ -1,5 +1,6 @@
 """
 017_move_zeroes
+https://leetcode.com/problems/move-zeroes/
 
 Question:
 Move all 0's to the end in-place preserving order of non-zeros.
@@ -13,4 +14,12 @@ Approaches:
   3. Snowball: swap accumulating zero block with next non-zero  ->  O(n) time, O(1) space
 """
 
+
 # TODO: implement your solution here
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        j = 0
+        for i in range(len(nums)):
+            if nums[i] != 0:
+                nums[i], nums[j] = nums[j], nums[i]
+                j += 1
