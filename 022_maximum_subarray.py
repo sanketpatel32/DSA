@@ -15,3 +15,20 @@ Approaches:
 """
 
 # TODO: implement your solution here
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        # current subarray sum
+        curr_sum = nums[0]
+
+        # maximum sum found so far
+        max_sum = nums[0]
+
+        for i in range(1, len(nums)):
+            # either start new subarray from nums[i]
+            # or continue previous subarray
+            curr_sum = max(nums[i], curr_sum + nums[i])
+
+            # update answer
+            max_sum = max(max_sum, curr_sum)
+
+        return max_sum

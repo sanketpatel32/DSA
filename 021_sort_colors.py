@@ -13,4 +13,18 @@ Approaches:
   3. General comparison sort  ->  O(n log n) time, O(1) space
 """
 
+
 # TODO: implement your solution here
+def sort_colors(nums: List[int]) -> None:
+    low, mid, high = 0, 0, len(nums) - 1
+    while mid < high:
+        if nums[mid] == 0:
+            nums[mid], nums[low] = nums[low], nums[mid]
+            mid += 1
+            low += 1
+        elif nums[mid] == 1:
+            mid += 1
+        else:
+            nums[mid], nums[high] = nums[high], nums[mid]
+            mid += 1
+            high -= 1
