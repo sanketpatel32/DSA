@@ -14,3 +14,20 @@ Approaches:
 """
 
 # TODO: implement your solution here
+
+def find_pivot_index(nums):
+    sum = 0 
+    for i in nums:
+        sum += i
+    pre_sum = 0
+    for i in range(len(nums)):
+        if sum - nums[i] == 2 * pre_sum :
+            return i
+        pre_sum += nums[i]
+
+    return 0;
+
+if __name__ == "__main__":
+    nums = [1,7,3,6,5,6]
+    print(find_pivot_index(nums))
+            

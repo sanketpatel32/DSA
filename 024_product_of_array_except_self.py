@@ -13,4 +13,35 @@ Approaches:
   3. Single output array with running prefix (left then right sweep)  ->  O(n) time, O(1) extra space
 """
 
-# TODO: implement your solution here
+from turtle import right
+
+
+def productExceptSelf(nums):
+    n = len(nums)
+    answer = [1] * n
+    left = [1] * n
+    right = [1] * n
+
+    for i in range(n):
+        answer[i] *= left[i]
+        left[i] *= nums[i]
+
+    for i in range(n - 1, -1, -1):
+        answer[i] *= right[i]
+        right[i] *= nums[i]
+
+    return answer
+
+
+# ---- Quick test ----
+if __name__ == "__main__":
+    tests = [
+        ([1, 2, 3, 4], [24, 12, 8, 6]),
+        ([2, 3, 4, 5], [60, 40, 30, 24]),
+        ([-1, 1, 0, -3, 3], [0, 0, 9, 0, 0]),
+    ]
+    for nums, expected in tests:
+        result = productExceptSelf(nums)
+        print(
+            f"nums={nums} -> {result} {'PASS' if result == expected else 'FAIL expected ' + str(expected)}"
+        )
